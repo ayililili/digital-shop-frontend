@@ -34,3 +34,10 @@ using Firebase Authentication.
    ```bash
    npm run build
    ```
+
+## Routing
+
+This project uses **React Router DOM** for navigation. The routes are
+configured in `src/App.tsx`, and the corresponding page components live in
+`src/pages`. Use the navigation links at the top of the app to switch between
+the Home, Login and Product pages.
