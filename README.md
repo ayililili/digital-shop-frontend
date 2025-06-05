@@ -1,7 +1,8 @@
 # 🛍️ Digital Product Shop (Frontend)
 
-Simple React + Firebase example built with Vite. It demonstrates Google login
-using Firebase Authentication.
+This project is a **prototype digital product shop** built with **React**,
+**Vite**, and **Firebase**. It demonstrates Google login using Firebase
+Authentication.
 
 ## Prerequisites
 
@@ -23,6 +24,8 @@ using Firebase Authentication.
    # edit .env with your values
    ```
 
+   **Note:** Missing `.env` values will cause the app to fail.
+
 3. Start the dev server
 
    ```bash
@@ -37,7 +40,6 @@ using Firebase Authentication.
 
 ## Routing
 
-This project uses **React Router DOM** for navigation. The routes are
-configured in `src/App.tsx`, and the corresponding page components live in
-`src/pages`. Use the navigation links at the top of the app to switch between
-the Home, Login and Product pages.
+This project uses **React Router DOM** for navigation. Routes for the **Home**,
+**Login**, and **Product** pages are configured in `src/App.tsx` and implemented
+under `src/pages/*`.
