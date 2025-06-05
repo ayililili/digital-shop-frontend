@@ -41,3 +41,10 @@ This project uses **React Router DOM** for navigation. The routes are
 configured in `src/App.tsx`, and the corresponding page components live in
 `src/pages`. Use the navigation links at the top of the app to switch between
 the Home, Login and Product pages.
+
+## Error Handling
+
+Rendering errors are caught by an `ErrorBoundary` component which displays a
+fallback message instead of breaking the entire app. Firebase initialization in
+`src/firebase.ts` also validates that all required environment variables are
+present and throws a descriptive error when any are missing.
