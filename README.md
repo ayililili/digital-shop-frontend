@@ -17,11 +17,11 @@ Authentication.
    npm install
    ```
 
-2. Copy the `.env.example` file and fill in your Firebase credentials
+2. Copy the `.env.example` file and fill in your Firebase and API credentials
 
    ```bash
    cp .env.example .env
-   # edit .env with your values
+   # edit .env with your values, including `VITE_API_BASE_URL`
    ```
 
 3. Start the dev server
