@@ -15,6 +15,9 @@ function Header() {
           <li>
             <Link to="/product">Product</Link>
           </li>
+          <li>
+            <Link to="/member">Member</Link>
+          </li>
         </ul>
       </nav>
     </header>

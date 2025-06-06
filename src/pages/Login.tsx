@@ -1,31 +1,18 @@
-import { useEffect, useState } from 'react';
-import { auth, provider } from '../firebase';
-import {
-  onAuthStateChanged,
-  signInWithPopup,
-  signOut,
-  type User,
-} from 'firebase/auth';
+import { useAuth } from '../AuthContext';
 
 function Login() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    return onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  }, []);
+  const { user, login, logout } = useAuth();
 
   const handleLogin = async () => {
     try {
-      await signInWithPopup(auth, provider);
+      await login();
     } catch (err) {
       console.error(err);
     }
   };
 
   const handleLogout = async () => {
-    await signOut(auth);
+    await logout();
   };
 
   return (
