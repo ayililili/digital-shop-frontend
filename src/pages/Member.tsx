@@ -17,7 +17,7 @@ function Member() {
   return (
     <div>
       <h2>Member Page</h2>
-      <p>Welcome, {(backendUser as any).email}</p>
+      <p>Welcome, {backendUser.email}</p>
     </div>
   );
 }

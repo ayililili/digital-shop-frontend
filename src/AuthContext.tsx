@@ -13,9 +13,14 @@ import {
   setAccessToken,
 } from './api';
 
+export interface BackendUser {
+  email: string;
+  [key: string]: unknown;
+}
+
 interface AuthContextValue {
   user: FirebaseUser | null;
-  backendUser: unknown | null;
+  backendUser: BackendUser | null;
   accessToken: string | null;
   login: () => Promise<void>;
   logout: () => Promise<void>;
@@ -29,7 +34,7 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<FirebaseUser | null>(null);
-  const [backendUser, setBackendUser] = useState<unknown | null>(null);
+  const [backendUser, setBackendUser] = useState<BackendUser | null>(null);
   const [accessToken, setTokenState] = useState<string | null>(
     getStoredAccessToken(),
   );
