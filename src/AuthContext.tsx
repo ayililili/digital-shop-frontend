@@ -45,11 +45,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = async () => {
-    const result = await signInWithPopup(auth, provider);
-    const idToken = await result.user.getIdToken();
-    const userData = await loginWithGoogle(idToken);
-    setBackendUser(userData);
-    setTokenState(getStoredAccessToken());
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+      const userData = await loginWithGoogle(idToken);
+      setBackendUser(userData);
+      setTokenState(getStoredAccessToken());
+    } catch (err) {
+      await logout();
+      throw err;
+    }
   };
 
   const logout = async () => {

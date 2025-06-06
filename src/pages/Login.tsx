@@ -1,7 +1,7 @@
 import { useAuth } from '../AuthContext';
 
 function Login() {
-  const { user, login, logout } = useAuth();
+  const { user, backendUser, login, logout } = useAuth();
 
   const handleLogin = async () => {
     try {
@@ -18,7 +18,7 @@ function Login() {
   return (
     <div>
       <h2>Login</h2>
-      {user ? (
+      {user && backendUser ? (
         <>
           <p>👋 Hello, {user.displayName}</p>
           <button onClick={handleLogout}>登出</button>
