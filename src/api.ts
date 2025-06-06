@@ -1,3 +1,5 @@
+import type { BackendUser } from './AuthContext';
+
 const requiredEnvVars = ['VITE_API_BASE_URL'] as const;
 for (const key of requiredEnvVars) {
   if (!import.meta.env[key]) {
@@ -48,8 +50,8 @@ export function getStoredAccessToken() {
   return localStorage.getItem('access_token');
 }
 
-export async function loginWithGoogle(idToken: string) {
-  const data = await apiFetch<{ data: { access_token: string; user: unknown } }>(
+export async function loginWithGoogle(idToken: string): Promise<BackendUser> {
+  const data = await apiFetch<{ data: { access_token: string; user: BackendUser } }>(
     '/auth/google-login',
     {
       method: 'POST',
@@ -61,8 +63,8 @@ export async function loginWithGoogle(idToken: string) {
   return data.data.user;
 }
 
-export async function refreshAccessToken() {
-  const data = await apiFetch<{ data: { access_token: string; user: unknown } }>(
+export async function refreshAccessToken(): Promise<BackendUser> {
+  const data = await apiFetch<{ data: { access_token: string; user: BackendUser } }>(
     '/auth/refresh-token',
     { method: 'POST' },
   );
